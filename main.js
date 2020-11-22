@@ -22,3 +22,45 @@ new fullpage("#page", {
 		}
 	}
 });
+
+let interval = 0;
+let color = document.getElementsByClassName("watch");
+color[1].addEventListener("click", chcolor);
+
+function chcolor(){
+	if(!interval){
+		if (color[1].style.opacity == 1){
+			interval = setInterval(function(){fade(color[1])}, 25);
+			console.log(interval);
+		}else{
+			interval = setInterval(function(){appear(color[1])}, 25);
+			console.log(interval);
+		}
+	}
+}
+
+function fade(white){
+	console.log("white:", white.style.opacity);
+	if (white.style.opacity > 0){
+		white.style.opacity -= 0.1;
+		console.log("to black");
+	}
+	else{
+		clearInterval(interval);
+		interval = 0;
+		console.log("clear interval", interval);
+	}
+}
+
+function appear(white){
+	console.log("white:", white.style.opacity);
+	if (white.style.opacity < 1){
+		white.style.opacity = Number(white.style.opacity) + 0.1;
+		console.log("to black");
+	}
+	else{
+		clearInterval(interval);
+		interval = 0;
+		console.log("clear interval", interval);
+	}
+}

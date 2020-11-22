@@ -17,6 +17,7 @@ span {
 	top: 50%;
 	left: 70%;
 	transform: translate(-50%, -50%);
+	opacity: 1;
 }
 
 .s1{
